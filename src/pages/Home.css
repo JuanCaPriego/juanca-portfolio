@@ -17,6 +17,35 @@
     width: 70%;
     height: 100%;
     border: 1px solid pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    color: white;
+    padding: 1rem;
+}
+.info-title {
+    font-weight: bold;
+    margin: 0;
+    color: red;
+}
+.info-desc {
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0;
+    opacity: 0.85;
+}
+.roulette-img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 .desc{
     width: 30%;
@@ -35,9 +64,4 @@
 p{
     color: red;
     font-size: 20px;
-}
-.roulette-img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }

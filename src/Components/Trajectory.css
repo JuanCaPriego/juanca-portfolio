@@ -1,0 +1,240 @@
+.trajectory {
+    padding: 4rem 2rem 3rem;
+    font-family: inherit;
+}
+
+/* ---------- Track ---------- */
+
+.trajectory-track {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 220px;
+    margin-bottom: 2.5rem;
+}
+
+.trajectory-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    height: 1px;
+    background: #c9beac;
+}
+
+.trajectory-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    flex: 1;
+}
+
+.trajectory-label {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #6b5f4d;
+    white-space: nowrap;
+    margin-bottom: 0.6rem;
+    transition: color 0.2s ease;
+}
+
+.trajectory-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #9c8f78;
+    background: #e4dcc9;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.trajectory-dot-highlight {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.7;
+    transform: translate(-6px, -6px);
+}
+
+.trajectory-year {
+    font-size: 0.75rem;
+    color: #8a7d68;
+    margin-top: 0.6rem;
+    letter-spacing: 0.02em;
+}
+
+/* Career nodes sit on the axis, bigger */
+.trajectory-node--career {
+    justify-content: flex-end;
+    margin-bottom: -40px;
+}
+
+.trajectory-node--career .trajectory-dot {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+}
+
+.trajectory-node--career .trajectory-label {
+    order: 3;
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+.trajectory-node--career .trajectory-year {
+    order: 1;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+}
+
+.trajectory-node--career.is-active .trajectory-dot {
+    background: #8a6a45;
+    border-color: #8a6a45;
+}
+
+.trajectory-node--career.is-active .trajectory-label {
+    color: #2b2318;
+    font-weight: 600;
+}
+
+/* Project nodes float above the line, smaller, linked by a stem */
+.trajectory-node--project {
+    justify-content: flex-start;
+}
+
+.trajectory-node--project .trajectory-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.trajectory-node--project::after {
+    content: "";
+    position: absolute;
+    top: 66px;
+    bottom: -180px;
+    left: 50%;
+    width: 1px;
+    background: #c9beac;
+    z-index: -1;
+}
+
+.trajectory-node--project .trajectory-year {
+    display: none;
+}
+
+.trajectory-node--project.is-active .trajectory-dot {
+    background: #b3cde0;
+    border-color: #5b7c94;
+}
+
+.trajectory-node--project.is-active .trajectory-label {
+    color: #2b2318;
+    font-weight: 600;
+}
+
+.trajectory-node:hover .trajectory-dot {
+    transform: scale(1.06);
+}
+
+.trajectory-node:focus-visible {
+    outline: 2px solid #8a6a45;
+    outline-offset: 4px;
+}
+
+/* ---------- Detail panel ---------- */
+
+.trajectory-detail {
+    border-top: 1px solid #d9d0bd;
+    padding-top: 1.75rem;
+}
+
+.trajectory-detail-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.trajectory-detail-head h3 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.trajectory-badge {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    background: #e4dcc9;
+    color: #6b5f4d;
+    border-radius: 3px;
+}
+
+.trajectory-badge--project {
+    background: #dce7ee;
+    color: #40607a;
+}
+
+.trajectory-meta {
+    color: #8a7d68;
+    font-size: 0.9rem;
+    margin: 0 0 0.9rem;
+}
+
+.trajectory-desc {
+    max-width: 60ch;
+    line-height: 1.55;
+    margin: 0 0 1rem;
+}
+
+.trajectory-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.trajectory-tag {
+    font-size: 0.78rem;
+    background: #ece5d4;
+    color: #5c5240;
+    padding: 0.3rem 0.65rem;
+    border-radius: 3px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+    .trajectory-track {
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 2.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .trajectory-node {
+        flex: 0 0 auto;
+    }
+
+    .trajectory-label {
+        white-space: normal;
+        max-width: 90px;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .trajectory-dot,
+    .trajectory-node .trajectory-label {
+        transition: none;
+    }
+}

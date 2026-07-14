@@ -9,6 +9,7 @@
     background: rgba(54, 54, 54, 0.518);
     opacity: .7;
     position: fixed;
+    z-index: 1;
 }
 .navbar ul{
     width: 100%;
