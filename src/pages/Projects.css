@@ -1,0 +1,25 @@
+.container{
+    width: 100%;
+    height: 100%;
+    border: 4px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 40px;
+    color: red;
+}
+.projects-desc{
+    width: 60%;
+    height: 60%;
+    border: 2px solid blueviolet;
+    padding-top: 3rem;
+    text-align: center;
+}
+.projects-grid{
+    width: 60%;
+    height: 60%;
+    border: 2px solid blueviolet;
+}
