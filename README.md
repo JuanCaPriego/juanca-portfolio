@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Juan Priego — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio built with React + Vite: an intro/landing page, a projects
+grid, a markdown-powered blog for hobbies (climbing, running, etc.), and a CV
+page. Deploys for free to GitHub Pages via GitHub Actions.
 
-## Available Scripts
+## Running locally
 
-In the project directory, you can run:
+```bash
+npm install
+npm run dev
+```
 
-### `npm start`
+Opens at `http://localhost:5173/juanca-portfolio/` (the `/juanca-portfolio/`
+path prefix matches production — see "Deploying" below).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm run build    # production build to dist/
+npm run preview  # preview the production build locally
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Adding a hobbies blog post
 
-### `npm test`
+Add a new `.md` file to [`src/content/hobbies/`](src/content/hobbies/). The
+filename (without `.md`) becomes the post's URL slug. Frontmatter fields:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```md
+---
+title: Post Title
+date: 2024-01-20
+excerpt: One-line summary shown on the Hobbies list page.
+tags: climbing, alpinism
+cover: My Image.jpg
+---
 
-### `npm run build`
+Post body in markdown goes here.
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `date` should be `YYYY-MM-DD` so posts sort correctly.
+- `tags` is a comma-separated list.
+- `cover` is optional — it must match a filename already in
+  [`src/assets/images/`](src/assets/images/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+No rebuild step needed beyond the normal dev/build — posts are picked up
+automatically by [`src/lib/posts.js`](src/lib/posts.js).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Adding/editing projects
 
-### `npm run eject`
+Edit the array in [`src/data/projects.js`](src/data/projects.js). Each entry
+is a plain object (title, year, description, tags, repo/demo links).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Editing your CV
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Edit [`src/data/cv.js`](src/data/cv.js) (summary, contact, experience,
+education, skills). To enable the "Download PDF" button on the CV page, add
+your resume as `public/resume.pdf`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Deploying to GitHub Pages
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This repo is set up to deploy automatically via
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) every time you
+push to `main`.
 
-## Learn More
+One-time setup after pushing this repo to GitHub as `juanca-portfolio`:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. On GitHub: **Settings → Pages → Source → GitHub Actions**.
+2. Push to `main`. The workflow builds the site and deploys it.
+3. Your site will be live at `https://<your-username>.github.io/juanca-portfolio/`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you ever rename the repo, update `base` in
+[`vite.config.js`](vite.config.js) and the redirect path in
+[`public/404.html`](public/404.html) to match.
 
-### Code Splitting
+### Why `public/404.html` exists
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+GitHub Pages has no server-side routing, so a hard refresh or a shared link to
+a deep route (e.g. `/hobbies/some-post`) would normally 404. `404.html` plus a
+small script in `index.html` redirect these back through the app so React
+Router can restore the intended page. This is the standard
+[spa-github-pages](https://github.com/rafgraph/spa-github-pages) technique.
 
-### Analyzing the Bundle Size
+## Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The photos in `src/assets/images/` are currently full-resolution originals
+  (several are 5–15+ MB each). They work, but compressing/resizing them
+  (e.g. to ~1600px wide, ~85% JPEG quality) will make the site load
+  noticeably faster — worth doing before you rely on this for a job search.

@@ -1,9 +1,111 @@
-.container{
+.hobbies-page{
     width: 100%;
-    height: 100%;
-    /* border: 4px solid red; */
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 6rem 4rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
-h1{
-    font-size: 40px;
-    /* color: red; */
+.hobbies-desc{
+    margin-bottom: 2.5rem;
+}
+.hobbies-desc p{
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+.hobbies-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.hobby-card{
+    display: flex;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: box-shadow 0.2s ease;
+}
+.hobby-card:hover{
+    box-shadow: 0 6px 20px rgba(43, 35, 24, 0.1);
+}
+.hobby-card-image{
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+.hobby-card-body h2{
+    margin: 0 0 0.25rem;
+    font-size: 1.2rem;
+}
+.hobby-card-date{
+    color: var(--text-faint);
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem;
+}
+.hobby-card-excerpt{
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+}
+.hobby-card-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.hobby-tag{
+    font-size: 0.78rem;
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    padding: 0.3rem 0.65rem;
+    border-radius: 3px;
+}
+
+/* Post detail view */
+.hobby-post{
+    max-width: 700px;
+    margin: 0 auto;
+}
+.hobby-back-link{
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.hobby-back-link:hover{
+    text-decoration: underline;
+}
+.hobby-post h1{
+    margin-bottom: 0.25rem;
+}
+.hobby-post-cover{
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+}
+.hobby-post-content{
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+.hobby-post-content h2{
+    color: var(--text);
+    margin-top: 2rem;
+}
+.hobby-post-content a{
+    color: var(--accent);
+}
+.hobby-post-content ul,
+.hobby-post-content ol{
+    padding-left: 1.4rem;
 }
