@@ -1,0 +1,26 @@
+.social-links{
+    display: flex;
+    gap: 0.75rem;
+}
+.social-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.social-link svg{
+    width: 20px;
+    height: 20px;
+}
+.social-link:hover{
+    color: var(--text);
+    border-color: rgba(255, 138, 92, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 138, 92, 0.25);
+}

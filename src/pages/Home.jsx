@@ -2,6 +2,7 @@ import React from "react";
 import './Home.css';
 import { useState, useEffect } from "react";
 import Trajectory from "../Components/Trajectory";
+import SocialLinks from "../Components/SocialLinks";
 
 const imageModules = import.meta.glob('../assets/images/*.{jpg,jpeg,png}', { eager: true });
 const images = Object.entries(imageModules).map(([path, mod]) => ({
@@ -46,6 +47,7 @@ const Home = () => {
                     <div>
                         <p>I'm a Biomedical Engineer with a specialization in data and applied AI. I build at the intersection of hardware and software — from mechatronics prototypes to data pipelines and analysis tools that turn challenges into projects and data into insights. Outside of work, you'll find me on a rock face or high on a mountain; alpinism and climbing are as much a part of how I think as any project I build. I'm currently getting into cross-country running, always looking for the next long line to follow.</p>
                     </div>
+                    <SocialLinks />
                 </div>
             </section>
             <section className="trayectory">

@@ -53,9 +53,11 @@ body::before {
   background-image:
     radial-gradient(640px circle at 12% 15%, var(--accent-soft), transparent 60%),
     radial-gradient(560px circle at 88% 70%, var(--accent-violet-soft), transparent 60%),
-    url('./assets/textures/topo-pattern.svg'),
+    url('./assets/textures/contour-rings.svg'),
     linear-gradient(160deg, var(--bg-navy) 0%, var(--bg-mid) 45%, var(--bg-plum) 100%);
-  background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 0 0, 0 0, center, 0 0;
+  background-size: auto, auto, 100% 100%, auto;
 }
 
 a {
