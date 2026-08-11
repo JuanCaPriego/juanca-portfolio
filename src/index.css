@@ -1,24 +1,61 @@
 :root {
-  --bg: #f4efe4;
-  --bg-elevated: #ece5d4;
-  --bg-card: #fbf8f1;
-  --text: #2b2318;
-  --text-muted: #6b5f4d;
-  --text-faint: #8a7d68;
-  --accent: #8a6a45;
-  --border: #d9d0bd;
-  --line: #c9beac;
+  /* base gradient */
+  --bg-navy: #0c1020;
+  --bg-mid: #1a1330;
+  --bg-plum: #2a1442;
+
+  /* glass surfaces */
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-strong: rgba(255, 255, 255, 0.09);
+  --border: rgba(255, 255, 255, 0.14);
+  --border-soft: rgba(255, 255, 255, 0.08);
+
+  /* text */
+  --text: #f6f1e7;
+  --text-muted: #c7bfda;
+  --text-faint: #948aab;
+
+  /* accent */
+  --accent: #ff8a5c;
+  --accent-2: #ffb347;
+  --accent-gradient: linear-gradient(135deg, #ff8a5c 0%, #ffb347 100%);
+  --accent-violet: #b18aff;
+  --accent-violet-soft: rgba(177, 138, 255, 0.16);
+  --accent-soft: rgba(255, 138, 92, 0.16);
+
+  --shadow-glow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 body {
   margin: 0;
-  background-color: var(--bg);
+  min-height: 100vh;
   color: var(--text);
+  background-color: var(--bg-navy);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+  A fixed pseudo-element instead of `background-attachment: fixed` on body:
+  the latter breaks and paints as a flat color once scrolled, in combination
+  with backdrop-filter blur elsewhere on the page (nav/cards) forcing extra
+  compositing layers.
+*/
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(640px circle at 12% 15%, var(--accent-soft), transparent 60%),
+    radial-gradient(560px circle at 88% 70%, var(--accent-violet-soft), transparent 60%),
+    url('./assets/textures/topo-pattern.svg'),
+    linear-gradient(160deg, var(--bg-navy) 0%, var(--bg-mid) 45%, var(--bg-plum) 100%);
+  background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 }
 
 a {

@@ -5,12 +5,20 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    padding: 6rem 4rem 3rem;
+    padding: 7rem 4rem 3rem;
 }
 .projects-desc{
     max-width: 60ch;
     text-align: center;
     margin-bottom: 3rem;
+}
+.projects-desc h1{
+    font-size: 2.75rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
 }
 .projects-desc p {
     color: var(--text-muted);
@@ -24,13 +32,21 @@
     gap: 1.5rem;
 }
 .project-card{
-    background: var(--bg-card);
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
+    border-radius: 1rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-glow);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.project-card:hover{
+    border-color: rgba(255, 138, 92, 0.4);
+    transform: translateY(-2px);
 }
 .project-card-head{
     display: flex;
@@ -40,6 +56,7 @@
 .project-card-head h2{
     margin: 0;
     font-size: 1.2rem;
+    color: var(--text);
 }
 .project-year{
     color: var(--text-faint);
@@ -59,8 +76,9 @@
 }
 .project-tag{
     font-size: 0.78rem;
-    background: var(--bg-elevated);
-    color: var(--text-muted);
+    background: var(--accent-violet-soft);
+    border: 1px solid rgba(177, 138, 255, 0.25);
+    color: var(--accent-violet);
     padding: 0.3rem 0.65rem;
     border-radius: 3px;
 }
@@ -70,11 +88,15 @@
     margin-top: 0.25rem;
 }
 .project-links a{
-    color: var(--accent);
-    font-weight: 600;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
     font-size: 0.9rem;
     text-decoration: none;
 }
 .project-links a:hover{
     text-decoration: underline;
+    text-decoration-color: var(--accent);
 }

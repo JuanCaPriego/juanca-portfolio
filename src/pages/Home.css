@@ -4,11 +4,11 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 0 4rem;
+    padding: 0 4rem 4rem;
 }
 .Aboutme{
     width: 100%;
-    padding-top: 6rem;
+    padding-top: 7rem;
     display: flex;
     flex-direction: row;
     gap: 3rem;
@@ -22,29 +22,31 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    border-radius: 0.75rem;
+    border-radius: 1.25rem;
     overflow: hidden;
-    background: var(--bg-elevated);
-    box-shadow: 0 8px 24px rgba(43, 35, 24, 0.12);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-glow), 0 0 0 1px rgba(255, 138, 92, 0.08);
 }
 .info {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    color: #f4efe4;
-    padding: 1rem 1.25rem;
+    background: linear-gradient(transparent, rgba(12, 16, 32, 0.85));
+    color: var(--text);
+    padding: 1.25rem 1.5rem;
 }
 .info-title {
     font-weight: bold;
     margin: 0;
-    color: #f4efe4;
+    color: var(--text);
+    font-size: 1.1rem;
 }
 .info-desc {
-    font-size: 0.85rem;
-    margin: 0.25rem 0 0;
-    opacity: 0.85;
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+    color: var(--text-muted);
 }
 .roulette-img{
     width: 100%;
@@ -57,19 +59,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 .desc h1 {
-    margin-bottom: 0;
-    color: var(--text);
+    margin: 0;
+    font-size: 3rem;
+    line-height: 1.1;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 .desc p{
     color: var(--text-muted);
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.65;
     max-width: 55ch;
 }
 .trayectory{
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 3rem;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    box-sizing: border-box;
+    box-shadow: var(--shadow-glow);
 }

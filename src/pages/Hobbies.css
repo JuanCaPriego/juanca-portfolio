@@ -2,12 +2,20 @@
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 6rem 4rem 3rem;
+    padding: 7rem 4rem 3rem;
     max-width: 900px;
     margin: 0 auto;
 }
 .hobbies-desc{
     margin-bottom: 2.5rem;
+}
+.hobbies-desc h1{
+    font-size: 2.75rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
 }
 .hobbies-desc p{
     color: var(--text-muted);
@@ -23,25 +31,31 @@
     gap: 1.5rem;
     text-decoration: none;
     color: inherit;
-    background: var(--bg-card);
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
+    border-radius: 1rem;
     padding: 1.25rem;
-    transition: box-shadow 0.2s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-glow);
+    transition: border-color 0.2s ease, transform 0.2s ease;
 }
 .hobby-card:hover{
-    box-shadow: 0 6px 20px rgba(43, 35, 24, 0.1);
+    border-color: rgba(255, 138, 92, 0.4);
+    transform: translateY(-2px);
 }
 .hobby-card-image{
     width: 160px;
     height: 120px;
     object-fit: cover;
-    border-radius: 0.5rem;
+    border-radius: 0.65rem;
     flex-shrink: 0;
+    border: 1px solid var(--border-soft);
 }
 .hobby-card-body h2{
     margin: 0 0 0.25rem;
     font-size: 1.2rem;
+    color: var(--text);
 }
 .hobby-card-date{
     color: var(--text-faint);
@@ -61,8 +75,9 @@
 }
 .hobby-tag{
     font-size: 0.78rem;
-    background: var(--bg-elevated);
-    color: var(--text-muted);
+    background: var(--accent-violet-soft);
+    border: 1px solid rgba(177, 138, 255, 0.25);
+    color: var(--accent-violet);
     padding: 0.3rem 0.65rem;
     border-radius: 3px;
 }
@@ -75,7 +90,7 @@
 .hobby-back-link{
     display: inline-block;
     margin-bottom: 1.5rem;
-    color: var(--accent);
+    color: var(--accent-2);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -85,13 +100,16 @@
 }
 .hobby-post h1{
     margin-bottom: 0.25rem;
+    font-size: 2.25rem;
+    color: var(--text);
 }
 .hobby-post-cover{
     width: 100%;
     max-height: 420px;
     object-fit: cover;
-    border-radius: 0.75rem;
+    border-radius: 1rem;
     margin: 1.5rem 0;
+    border: 1px solid var(--border);
 }
 .hobby-post-content{
     color: var(--text-muted);
@@ -103,7 +121,7 @@
     margin-top: 2rem;
 }
 .hobby-post-content a{
-    color: var(--accent);
+    color: var(--accent-2);
 }
 .hobby-post-content ul,
 .hobby-post-content ol{

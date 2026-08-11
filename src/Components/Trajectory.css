@@ -1,5 +1,5 @@
 .trajectory {
-    padding: 4rem 2rem 3rem;
+    padding: 0.5rem 0.5rem 0;
     font-family: inherit;
 }
 
@@ -20,7 +20,7 @@
     right: 0;
     bottom: 40px;
     height: 1px;
-    background: #c9beac;
+    background: var(--border);
 }
 
 .trajectory-node {
@@ -39,7 +39,7 @@
 .trajectory-label {
     font-size: 0.8rem;
     font-style: italic;
-    color: #6b5f4d;
+    color: var(--text-faint);
     white-space: nowrap;
     margin-bottom: 0.6rem;
     transition: color 0.2s ease;
@@ -49,9 +49,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1.5px solid #9c8f78;
-    background: #e4dcc9;
-    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .trajectory-dot-highlight {
@@ -66,7 +66,7 @@
 
 .trajectory-year {
     font-size: 0.75rem;
-    color: #8a7d68;
+    color: var(--text-faint);
     margin-top: 0.6rem;
     letter-spacing: 0.02em;
 }
@@ -97,12 +97,13 @@
 }
 
 .trajectory-node--career.is-active .trajectory-dot {
-    background: #8a6a45;
-    border-color: #8a6a45;
+    background: var(--accent-gradient);
+    border-color: transparent;
+    box-shadow: 0 0 18px rgba(255, 138, 92, 0.55);
 }
 
 .trajectory-node--career.is-active .trajectory-label {
-    color: #2b2318;
+    color: var(--text);
     font-weight: 600;
 }
 
@@ -124,7 +125,7 @@
     bottom: -180px;
     left: 50%;
     width: 1px;
-    background: #c9beac;
+    background: var(--border);
     z-index: -1;
 }
 
@@ -133,12 +134,13 @@
 }
 
 .trajectory-node--project.is-active .trajectory-dot {
-    background: #b3cde0;
-    border-color: #5b7c94;
+    background: var(--accent-violet);
+    border-color: transparent;
+    box-shadow: 0 0 18px rgba(177, 138, 255, 0.55);
 }
 
 .trajectory-node--project.is-active .trajectory-label {
-    color: #2b2318;
+    color: var(--text);
     font-weight: 600;
 }
 
@@ -147,14 +149,14 @@
 }
 
 .trajectory-node:focus-visible {
-    outline: 2px solid #8a6a45;
+    outline: 2px solid var(--accent);
     outline-offset: 4px;
 }
 
 /* ---------- Detail panel ---------- */
 
 .trajectory-detail {
-    border-top: 1px solid #d9d0bd;
+    border-top: 1px solid var(--border-soft);
     padding-top: 1.75rem;
 }
 
@@ -168,6 +170,7 @@
 .trajectory-detail-head h3 {
     font-size: 1.6rem;
     margin: 0;
+    color: var(--text);
 }
 
 .trajectory-badge {
@@ -175,18 +178,18 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.25rem 0.6rem;
-    background: #e4dcc9;
-    color: #6b5f4d;
+    background: var(--accent-soft);
+    color: var(--accent-2);
     border-radius: 3px;
 }
 
 .trajectory-badge--project {
-    background: #dce7ee;
-    color: #40607a;
+    background: var(--accent-violet-soft);
+    color: var(--accent-violet);
 }
 
 .trajectory-meta {
-    color: #8a7d68;
+    color: var(--text-faint);
     font-size: 0.9rem;
     margin: 0 0 0.9rem;
 }
@@ -195,6 +198,7 @@
     max-width: 60ch;
     line-height: 1.55;
     margin: 0 0 1rem;
+    color: var(--text-muted);
 }
 
 .trajectory-tags {
@@ -205,8 +209,9 @@
 
 .trajectory-tag {
     font-size: 0.78rem;
-    background: #ece5d4;
-    color: #5c5240;
+    background: var(--surface-strong);
+    border: 1px solid var(--border-soft);
+    color: var(--text-muted);
     padding: 0.3rem 0.65rem;
     border-radius: 3px;
 }
