@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Projects.css';
-import projects from "../data/projects";
+import { projectPosts } from "../lib/posts";
 
 const Projects = () => {
     return(
@@ -10,13 +11,13 @@ const Projects = () => {
                 <p>A selection of things I've built, from embedded hardware to mobile apps.</p>
             </div>
             <div className="projects-grid">
-                {projects.map((project) => (
-                    <div key={project.title} className="project-card">
+                {projectPosts.map((project) => (
+                    <Link key={project.slug} to={`/projects/${project.slug}`} className="project-card">
                         <div className="project-card-head">
                             <h2>{project.title}</h2>
-                            <span className="project-year">{project.year}</span>
+                            <span className="project-year">{project.date ? project.date.getFullYear() : ""}</span>
                         </div>
-                        <p className="project-description">{project.description}</p>
+                        <p className="project-description">{project.excerpt}</p>
                         {project.tags.length > 0 && (
                             <div className="project-tags">
                                 {project.tags.map((tag) => (
@@ -24,15 +25,7 @@ const Projects = () => {
                                 ))}
                             </div>
                         )}
-                        <div className="project-links">
-                            {project.repo && (
-                                <a href={project.repo} target="_blank" rel="noreferrer">Code</a>
-                            )}
-                            {project.demo && (
-                                <a href={project.demo} target="_blank" rel="noreferrer">Live demo</a>
-                            )}
-                        </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

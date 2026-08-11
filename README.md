@@ -44,10 +44,25 @@ Post body in markdown goes here.
 No rebuild step needed beyond the normal dev/build — posts are picked up
 automatically by [`src/lib/posts.js`](src/lib/posts.js).
 
-## Adding/editing projects
+## Adding a project
 
-Edit the array in [`src/data/projects.js`](src/data/projects.js). Each entry
-is a plain object (title, year, description, tags, repo/demo links).
+Add a new `.md` file to [`src/content/projects/`](src/content/projects/) —
+same format as hobbies posts, plus optional `repo` and `demo` URL fields:
+
+```md
+---
+title: Project Name
+date: 2025-01-01
+excerpt: One-line summary shown on the Projects grid.
+tags: Flutter, Firebase, Mobile
+repo: https://github.com/you/project
+demo: https://example.com
+---
+
+Project write-up in markdown goes here.
+```
+
+Each project gets its own page at `/projects/<filename>`, same as hobbies posts.
 
 ## Editing your CV
 

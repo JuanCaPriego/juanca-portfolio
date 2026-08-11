@@ -43,6 +43,8 @@
     -webkit-backdrop-filter: blur(10px);
     box-shadow: var(--shadow-glow);
     transition: border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
 }
 .project-card:hover{
     border-color: rgba(255, 138, 92, 0.4);
@@ -99,4 +101,65 @@
 .project-links a:hover{
     text-decoration: underline;
     text-decoration-color: var(--accent);
+}
+
+/* Project detail view */
+.project-post{
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+.project-back-link{
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.project-back-link:hover{
+    text-decoration: underline;
+}
+.project-post-head{
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+.project-post-head h1{
+    margin: 0 0 0.25rem;
+    font-size: 2.25rem;
+    color: var(--text);
+}
+.project-post .project-tags{
+    margin-top: 0.75rem;
+}
+.project-post-cover{
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--border);
+}
+.project-post-content{
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+}
+.project-post-content h2{
+    color: var(--text);
+    margin-top: 2rem;
+}
+.project-post-content a{
+    color: var(--accent-2);
+}
+.project-post-content ul,
+.project-post-content ol{
+    padding-left: 1.4rem;
+}
+.project-post .project-links{
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-soft);
 }
