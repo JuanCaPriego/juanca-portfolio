@@ -36,28 +36,7 @@ const milestones = [
         year: "2021",
         desc: "Analyze and model operational and quality data, building tools and dashboards that turn raw data into decisions across the business.",
         tags: ["Data Analysis", "Dashboards", "SQL"],
-    },
-    {
-        type: "project",
-        id: "load-cell-device",
-        title: "Fall-Force Load Cell",
-        year: "2024",
-        desc: "Instrumented load measurement concept: static cordino monitoring (HX711/S-type load cell) and dynamic fall-force capture (high-speed ADC, ESP32, circular buffer).",
-    },
-    {
-        type: "project",
-        id: "trekking-pole",
-        title: "Trekking Pole Prototype",
-        year: "2025",
-        desc: "Personal R&D prototype in development — testing and validating a trekking pole design against real alpine use.",
-    },
-    {
-        type: "project",
-        id: "hiraeth-trails",
-        title: "hiraeth_trails",
-        year: "2025",
-        desc: "Flutter + Firebase app for logging and sharing trail data, built end-to-end as a personal software project.",
-    },
+    }
 ];
 
 const MilestoneCard = ({ m }) => (
