@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+handoff.md
+codebase-guide.md
 
 # testing
 /coverage
